@@ -25,6 +25,12 @@
 - Add user roles and access controls for shared file functionality.
 - Improve UI/UX with modern front-end frameworks.
 
+## working
+FOR VSCODE
+-Go to Server1.js file
+-In Terminal type start node Server1.js or node Server1.js
+-copy paste the link in search engine or Ctrl+Rightclick on link
+
 ## 🧑‍💻 Author
 
 **Thrishanth Reddy Gottam**  
