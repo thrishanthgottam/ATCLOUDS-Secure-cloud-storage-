@@ -1,0 +1,85 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background: skyblue; /* Single background color */
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #007bff; /* Blue header */
+    color: white;
+    padding: 15px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav .logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+}
+
+.search-container input {
+    width: 300px;
+    height: 35px;
+    border-radius: 5px;
+    padding: 0 10px;
+    border: 1px solid #ddd;
+}
+
+.search-container .btn {
+    padding: 8px 16px;
+    margin-left: 10px;
+    background-color: #0056b3;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-container .btn:hover {
+    background-color: #003d80;
+}
+
+.search-container input:focus,
+.search-container .btn:focus {
+    outline: 2px solid #ffcc00;
+}
+
+main {
+    padding: 40px 20px;
+}
+
+footer {
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    padding: 15px 20px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.file-item {
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ATCLOUDS</title>
+    <link rel="stylesheet" href="sstyles.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li class="sy"><a >ATCLOUDS</a></li>
+           
+           <li class="user1">
+    <a href="#" id="userDropdown">user</a>
+    <ul id="dropdownMenu" style="display: none; position: absolute; background-color: white; list-style: none; padding: 5px; border: 1px solid lightgray;">
+        <li><a href="#" id="logoutLink">Logout</a></li>
+    </ul>
+</li>
+
+        </ul>
+    </nav>
+    <div class="d1">
+        <div class="d2" style="flex:1">
+            <a href="shelf.html"><img src="shelf.svg"alt="shelf"width="28vw"height="28vh">Shelf</a>
+            <a href="notes.html"><img src="notes.svg"alt="trash"width="28vw"height="28vh">Notes</a>
+            <a href="setting.html"><img src="settings.svg"alt="trash"width="28vw"height="28vh">Settings</a>
+            <div class="d21">
+                <a>Personal Crate</a>
+            </div>
+        </div>
+        <div class="d3" style="flex: 2;">
+            <div class="d31">
+                <a>STORE FILES</a>
+            </div>
+            <div class="d32" >
+                <form id="dataform" action="/uploads" method="post" enctype="multipart/form-data">
+                    <div class="d321">
+                        <a>Store In ATCLOUDS</a>
+                        <input class="i1" type="file" id="file_data" name="file" accept=".jpg,.jpeg,.png,.pdf,.txt" required>
+                        <button type="submit">STORE FILE</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="d4" style="flex: 1;">
+            
+            <div class="d41">
+            <!-- Preview Form -->
+            <form method="POST" action="/preview" target="filePreview">
+                <input  class="in"type="text" name="file_name" placeholder="  Enter Filename" required />
+                <button style="border: 1px solid skyblue;border-radius: 24px;width:fit-content;height: fit-content;padding: 2px;margin-top: 3vh;" type="submit"><img src="search.svg"width="24vw"height="24vh"></button>
+            </form>
+            </div>
+
+            <!-- Iframe for Preview -->
+           
+                <iframe style="border-bottom: 12px;"name="filePreview" width="90%" height="100%" style="border: 1px solid lightgray;"></iframe>
+           
+        </div>
+        
+    </div>
+    <script>
+        
+    document.getElementById('userDropdown').addEventListener('click', function (e) {
+        e.preventDefault();
+        const menu = document.getElementById('dropdownMenu');
+        menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+    });
+
+    document.getElementById('logoutLink').addEventListener('click', function (e) {
+        e.preventDefault();
+        fetch('/logout', { method: 'POST' })
+            .then(res => {
+                if (res.ok) {
+                    window.location.href = '/'; // Redirect to login page
+                } else {
+                    alert('Logout failed');
+                }
+            })
+            .catch(err => {
+                console.error('Logout error:', err);
+                alert('Logout error');
+            });
+    });
+
+
+    </script>
+</body>
+</html>

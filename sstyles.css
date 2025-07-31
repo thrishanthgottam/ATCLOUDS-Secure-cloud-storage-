@@ -1,0 +1,275 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to bottom right, #d0e7ff, #f0faff);
+    color: #333;
+}
+
+nav {
+    position: relative; /* ✅ Added for dropdown stacking */
+    z-index: 2000;       /* ✅ Ensures nav and dropdown are on top */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    background: linear-gradient(to right, #4facfe, #00f2fe);
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(5px);
+}
+
+nav ul {
+    width: 100%;
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+nav li {
+    height: 50px;
+}
+
+nav a {
+    height: 100%;
+    padding: 0 25px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: navy;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    color: #e0f7ff;
+    text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.5);
+}
+
+.sy {
+    cursor: pointer;
+    font-size: 1.5rem;
+    text-shadow: 2px 3px 8px white;
+}
+
+/* Dropdown container inside user1 */
+.user1 {
+    position: relative;  /* ✅ Needed for dropdown positioning */
+    z-index: 1100;       /* ✅ Ensures it's above other elements */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    color: #007acc;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    border: 2px solid #007acc;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+/* Dropdown menu */
+#dropdownMenu {
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+    z-index: 1500;  /* ✅ Must be higher than .user1 and nav children */
+    min-width: 120px;
+}
+
+/* Menu items */
+#dropdownMenu li {
+background-color: rgba(135, 206, 235, 0.7);
+    
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+#dropdownMenu li a {
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+    display: block;
+}
+
+/* Hover effect */
+#dropdownMenu li:hover {
+    background-color: #f0f8ff;
+}
+
+.user1:hover {
+    background-color: #007acc;
+    color: white;
+    box-shadow: 0px 0px 10px #007acc;
+}
+
+.d1 {
+    display: flex;
+    height: calc(100vh - 80px);
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(8px);
+}
+
+.d2, .d3, .d4 {
+    border-right: 1px solid #ddd;
+}
+
+.d2 {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: #ffffffaa;
+}
+
+.d2 a {
+    margin-top: 12px;
+    padding: 12px 16px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    background-color: #f5faff;
+    text-decoration: none;
+}
+
+.d2 a:hover {
+    background: linear-gradient(to right, #007acc, #00c6ff);
+    color: white;
+    box-shadow: 0px 0px 10px #00c6ff88;
+}
+
+.d21 {
+    margin-top: 25px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.d3 {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: url(cloud2.jpg) no-repeat center center / cover;
+}
+
+.d3 .d31 {
+    height: 110px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    text-shadow: 0px 0px 8px #000;
+}
+
+.d32 {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.d321 {
+    padding: 30px;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0px 0px 20px rgba(0, 128, 255, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    transition: all 0.4s ease;
+}
+
+.d321:hover {
+    background: linear-gradient(180deg, #00c6ff, #007acc, #d0f1ff);
+    color: white;
+    transform: scale(1.03);
+}
+
+.d321 a {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.i1 {
+    border-radius: 15px;
+    padding: 10px;
+    width: 250px;
+    border: 1px solid #00bfff;
+    background-color: #f5faff;
+}
+
+.d321 button {
+    padding: 10px 20px;
+    border-radius: 25px;
+    border: none;
+    background-color: #007acc;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.d321 button:hover {
+    background-color: #005f99;
+    box-shadow: 0px 0px 10px #007accaa;
+}
+
+.d4 {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    background-color: #ffffffaa;
+}
+
+.d41 {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.in {
+    padding: 8px 12px;
+    border-radius: 20px;
+    border: 1px solid #00bfff;
+    width: 70%;
+}
+
+.d41 button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.d41 button:hover {
+    transform: scale(1.1);
+}
+
+iframe {
+    border: 2px solid #ccc;
+    border-radius: 15px;
+    box-shadow: 0px 0px 15px rgba(0, 128, 255, 0.1);
+}

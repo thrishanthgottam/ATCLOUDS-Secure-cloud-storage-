@@ -1,0 +1,155 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    overflow: hidden;
+    min-height: 100vh;
+    background-image:url(cloud2.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+nav{
+    backdrop-filter: blur(5px);
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.1);
+}
+nav ul{
+    width: 100%;
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+nav li{
+    height: 50px;
+}
+nav a{
+    height: 100%;
+    padding: 0 30px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color:white;
+}
+nav a:hover{
+    box-shadow: 0 0 5px skyblue;
+    border-radius: 20px;
+    background-color: skyblue;
+}
+nav li:first-child{
+    margin-right: auto;
+}
+.sidebar{
+   border-radius: 20px;
+    position: fixed;
+    top:0;
+    right: 0;
+    height: 100vh;
+    width: 250px;
+    z-index: 999;
+    background-color:darkblue;
+    opacity: 0.9;
+    backdrop-filter: blur(5px);
+    box-shadow: -10px 0 10px rgba(0,0,0,0.1);
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+.sidebar a:hover{
+    color: darkblue;
+}
+.sidebar li{
+    width:100%;
+}
+.menu{
+    padding: 5px 5px 5px 5px;
+    box-shadow: 0 0 5px skyblue;
+    margin-right: 5px;
+}
+.cross{
+    padding: 5px 5px 5px 5px;
+    box-shadow: 0 0 5px skyblue;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+.d3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    margin: auto;
+    flex-direction: column;
+    margin-top: 20px;
+}
+.d4{
+    gap: 2px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    width:fit-content;
+    background-color:skyblue;
+    opacity: 0.8;
+    padding: 40px 40px 40px 40px;
+    border: 1px solid darkblue;
+}
+.i1,.i2{
+    color:black;
+    outline: none;
+    font-weight: bold;
+    padding:2px 5px 2px 5px;
+    border: transparent;
+    height: 30px;
+    border-radius: 15px;
+}
+.bt{
+    background: linear-gradient(90deg,lightskyblue,darkblue,lightgray);
+    background-size: 400% 400%;
+    border: none;
+    color:white;
+    padding: 15px 30px;
+    font-size: 16px;
+    outline: none;
+    transition:background-color 0.3s ease ;
+    animation: gradientanimation 5s ease infinite;
+    margin: 5px 0 0 13px;
+    height: 35px;
+    width: 150px;
+    cursor: pointer;
+}
+.h1{
+    color:gold;
+    margin:5px 0x 5px 5px;
+    text-shadow:1px 1px 4px black ;
+    cursor: pointer;
+}
+.i1:hover,.i2:hover{
+    outline: none;
+    box-shadow: 10px 10px 10px lightgray;
+    opacity: 0.8;
+    transition:0.4s;
+}
+@keyframes  gradientanimation{
+    0%{
+        background-position: 0% 50%;
+    }
+    50%{
+        background-position: 100% 50%;
+    }
+    100%{
+        background-position: 0% 50%;
+
+    }
+}
+.bt:hover{
+    border-radius: 5px;
+    color: skyblue;
+    box-shadow: 0 0 5px darkblue;
+}
+.cloud:hover{
+background-color: transparent;
+box-shadow: none;
+}
+

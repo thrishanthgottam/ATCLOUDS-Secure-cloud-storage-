@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes</title>
+    <link rel="stylesheet" href="notesstyle.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>My Notes</h1>
+
+        <div class="notes-area">
+            <textarea id="noteInput" placeholder="Write your note here..." rows="10" cols="50"></textarea>
+        </div>
+
+        <button onclick="saveNote()">Save Note</button>
+
+        <h2>Your Saved Notes:</h2>
+        <div class="saved-notes" id="savedNotes">
+            <!-- Saved notes will be displayed here -->
+        </div>
+    </div>
+
+    <script src="notesscript.js"></script>
+</body>
+</html>

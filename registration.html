@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Registration</title>
+  <link rel="stylesheet" href="regstyle.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="content">
+      <form method="post" action="/register" target="register" class="signin-box" onsubmit="return validateForm()">
+        <h2>Register</h2>
+        <input type="text" name="username" placeholder="Enter Username" required />
+        <input type="password" name="password" id="password" placeholder="Enter Password" required  />
+        
+        <button type="submit">Register</button>
+        <br>
+        <a href="cloud.html">Go Back</a>
+      </form>
+    </div>
+    <div class="fact">
+      <div class="fact-text">
+        <h3>ATCLOUDS</h3>
+        <h4>Why It's Safe</h4>
+        <p>Your files are encrypted before they leave your device. Only you hold the keys — not us, not anyone else.</p>
+        <p>We can’t see your data. Ever. Our servers store encrypted blobs — only you can decrypt them.</p>
+        <p>Your password is your encryption key. Keep it safe — we can't reset it or access your files without it.</p>
+      </div>
+    </div>
+  </div>
+
+
+  <script>// Function to validate the form before submission
+function validateForm() {
+    const username = document.querySelector('input[name="username"]').value.trim();
+    const password = document.getElementById('password').value;
+
+    if (!username || !password) {
+        alert("Both Username and Password are required!");
+        return false;  // Prevent form submission
+    }
+
+    const pattern = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*]).{8,}$/;
+    if (!pattern.test(password)) {
+        alert("Password must be at least 8 characters long and include:\n-  uppercase letter\n- number\n- special character (!@#$%^&*)");
+        return false;
+    }
+
+    return true;
+}
+
+</script>
+</body>
+</html>

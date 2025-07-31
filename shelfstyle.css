@@ -1,0 +1,86 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body, html {
+    height: 100%;
+    width: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #cceeff, #f0f8ff);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Header */
+h1 {
+    font-size: 2.5rem;
+    color: #003366;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 3px #99ccff;
+}
+
+/* File Container */
+.d1 {
+    background-color: #ffffff;
+    border: 2px solid #87cefa;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 80vw;
+    max-width: 800px;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    overflow-y: auto;
+}
+
+/* File Items */
+.d1 div {
+    padding: 12px 20px;
+    background-color: #e6f7ff;
+    border: 1px solid #b0d4ff;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.d1 div:hover {
+    background-color: #d1eaff;
+    transform: scale(1.02);
+}
+
+/* File Links */
+.d1 a {
+    text-decoration: none;
+    color: #00509e;
+    font-weight: bold;
+    font-size: 1.1rem;
+    word-break: break-word;
+}
+
+.d1 a:hover {
+    color: #003366;
+    text-decoration: underline;
+}
+/* Delete Button */
+.delete-btn {
+    background-color: #ff4d4d;
+    border: none;
+    margin-left: 15px;
+    padding: 6px 10px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.delete-btn:hover {
+    background-color: #cc0000;
+}

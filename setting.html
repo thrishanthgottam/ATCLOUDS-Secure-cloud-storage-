@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+    <link rel="stylesheet" href="settingstyle.css">
+</head>
+
+<body>
+
+    <div class="settings-container">
+        <h1>Settings</h1>
+
+        <form id="settingsForm">
+            <!-- Storage Settings -->
+            <div class="setting">
+                <label for="storage">Storage Usage</label>
+                <div id="storageInfo">
+                    <span id="storageValue">Loading storage...</span>
+                </div>
+            </div>
+
+            <!-- Change Password -->
+            <div class="setting">
+                <label for="oldPassword">Current Password</label>
+                <input type="password" id="oldPassword" name="oldPassword" required>
+
+                <label for="newPassword">New Password</label>
+                <input type="password" id="newPassword" name="newPassword" required>
+
+                <button type="button" id="changePassword">Change Password</button>
+            </div>
+
+            <!-- Clear Documents -->
+            <div class="setting">
+                <button type="button" id="clearDocuments">Remove This User</button>
+            </div>
+        </form>
+
+        <div id="responseMessage" class="response-message"></div>
+    </div>
+
+    <script>
+        // Fetch the current storage usage when the page loads
+        document.addEventListener('DOMContentLoaded', function () {
+            fetchStorageUsage();
+
+           
+
+
+
+
+
+            // Handle clear documents
+            document.getElementById('clearDocuments').addEventListener('click', function () {
+                clearDocuments();
+            });
+        });
+
+        // Function to fetch storage usage from the server
+        function fetchStorageUsage() {
+            fetch('/getStorageUsage')
+                .then(response => response.json())
+                .then(data => {
+                    const usedSpace = data.usedSpace || 0;
+                    const maxSpace = 10 * 1024 * 1024; // 10MB in bytes
+                    const usedMB = (usedSpace / (1024 * 1024)).toFixed(2); // Convert to MB
+                    const maxMB = (maxSpace / (1024 * 1024)).toFixed(2); // Convert to MB
+                    document.getElementById('storageValue').innerHTML = `Used: ${usedMB} MB of ${maxMB} MB`;
+                })
+                .catch(error => {
+                    document.getElementById('storageValue').innerHTML = 'Error fetching storage info.';
+                });
+        }
+
+
+        // Function to clear documents
+        function clearDocuments() {
+            fetch('/clearDocuments', {
+                method: 'POST'
+            })
+                .then(response => response.json())
+                .then(data => {
+                    alert(data.message || 'User Removed successfully');
+                })
+                .catch(error => {
+                    alert('Error clearing documents');
+                });
+        }
+        
+            //handle change password
+
+            document.getElementById('changePassword').addEventListener('click', function () {
+    const oldPassword = document.getElementById('oldPassword').value;
+    const newPassword = document.getElementById('newPassword').value;
+
+    console.log('Attempting to change password...', { oldPassword, newPassword });
+
+    fetch('/changePassword', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ oldPassword, newPassword }),
+    })
+    .then(res => res.json())
+    .then(data => {
+        console.log('Password change response:', data);
+        alert(data.message || 'Password change success');
+    })
+    .catch((err) => {
+        console.error('Fetch error:', err);
+        alert('Error changing password');
+    });
+});
+
+    </script>
+
+</body>
+
+</html>

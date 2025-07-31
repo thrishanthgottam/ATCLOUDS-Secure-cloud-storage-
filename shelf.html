@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Shelf</title>
+    <link rel="stylesheet"href="shelfstyle.css">
+</head>
+<body>
+    <h1>Your Uploaded Files</h1>
+    <div class="d1" id="file-list">
+        
+        <!-- Files will be displayed here -->
+        
+    </div>
+
+    <script>
+        
+        
+    // Fetch and display files
+    function fetchFiles() {
+        fetch('/shelf')
+            .then(response => {
+                if (!response.ok) throw new Error('Failed to fetch files');
+                return response.json();
+            })
+            .then(files => {
+                const fileListDiv = document.getElementById('file-list');
+                fileListDiv.innerHTML = '';
+
+                if (files.length === 0) {
+                    fileListDiv.innerHTML = '<p>No files uploaded</p>';
+                    return;
+                }
+
+                files.forEach(file => {
+                    const fileElement = document.createElement('div');
+
+                    // Link to preview
+                    const fileLink = document.createElement('a');
+                    fileLink.href = `/preview?file_name=${encodeURIComponent(file.file_name)}`;
+                    fileLink.innerText = file.file_name;
+
+                    // Delete button
+                    const deleteBtn = document.createElement('button');
+                    deleteBtn.innerText = 'Delete';
+                    deleteBtn.className = 'delete-btn';
+                    deleteBtn.onclick = () => {
+                        if (confirm(`Delete "${file.file_name}"?`)) {
+                            fetch('/delete-file', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify({ file_name: file.file_name })
+                            })
+                            .then(res => res.json())
+                            .then(data => {
+                                alert(data.message);
+                                fetchFiles(); // Refresh the list
+                            })
+                            .catch(err => {
+                                console.error('Delete failed:', err);
+                                alert('Failed to delete file');
+                            });
+                        }
+                    };
+
+                    fileElement.appendChild(fileLink);
+                    fileElement.appendChild(deleteBtn);
+                    fileListDiv.appendChild(fileElement);
+                });
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById('file-list').innerHTML = '<p>Error loading files</p>';
+            });
+    }
+
+    window.onload = fetchFiles;
+
+
+    </script>
+</body>
+</html>

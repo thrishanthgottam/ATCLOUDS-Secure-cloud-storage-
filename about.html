@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About Our Project</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom right, darkblue, skyblue);
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow-x: hidden;
+    }
+
+    .about-container {
+      max-width: 1200px;
+      padding: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+      backdrop-filter: blur(8px);
+      animation: fadeIn 2s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      color: #00e6e6;
+      animation: typing 3s steps(20) 1;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 2px solid white;
+    }
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    p {
+      font-size: 19px;
+      line-height: 1.8;
+      text-align: justify;
+    }
+
+    .highlight {
+      color: #00ffcc;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="about-container">
+    <h1>About Our Project</h1>
+    <p>
+      In the evolving landscape of <span class="highlight">cloud computing</span>, ensuring <span class="highlight">end-to-end security</span> has become a pressing concern. 
+      Our project, <strong>Secure Outsourcing and Sharing of Cloud Data with User Anonymity and Client-Side Encryption</strong>, pioneers a sophisticated, hybrid cryptographic framework integrating <span class="highlight">AES-128</span>, and <span class="highlight">Identity-Based Encryption</span> for resilient cloud interactions.
+      <br><br>
+      By executing <span class="highlight">client-side encryption</span> and deploying  for file integrity validation, we ensure that user data remains tamper-proof and verifiable even across distributed systems.
+      <br><br>
+      Leveraging <strong>Node.js</strong>, <strong>Express</strong>, and <strong>MySQL</strong> at the backend, fortified with <span class="highlight">JWT-based authentication</span> and <span class="highlight">SSL/TLS secured APIs</span>, our platform delivers unmatched security, scalability, and throughput.
+      <br><br>
+    </p>
+  </div>
+
+</body>
+</html>
